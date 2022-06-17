@@ -1,0 +1,289 @@
+.first {
+   position: relative;
+   z-index: 9;
+
+}
+.container {
+   position: fixed;
+   top: 0;
+   right: 0;
+   left: 0;
+   z-index: 1000;
+   height:auto;
+}
+.container1 {
+   width: 100%;
+   padding: 0 190px;
+   display: flex;
+   justify-content: space-between;
+   background-color:#f7f7f7;
+
+
+}
+.item1 , .item2 {
+   display: flex;
+   font-size: 15px;
+   font-weight: 400;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #333;
+   padding:5px 0px;
+
+}
+.item1 div, .item2 div {
+   padding: 0 5px;
+}
+.container2 {
+   width: 100%;
+   height: 65.862px;
+   padding: 0 190px;
+
+   display: flex;
+   align-items: center;
+   justify-content:space-between;
+   border-top: 1px solid #f8f8f8;
+   background-color: white;
+
+}
+.select {
+   cursor: pointer;
+   height: 44px;
+   width:148px;
+   padding: 10px 12px;
+   border-radius: 5px;
+   border: 1px solid #ebebeb;
+   background-color: #f5f5f5;
+   opacity: 1;
+   color: #333;
+}
+
+.inputContainer {
+   background-color: #f5f5f5;
+   width:382px;
+   border-radius: 5px;
+   padding-left: 10px;
+   border: 1px solid #ebebeb;
+
+}
+.input {
+   height: 44px;
+   padding: 3px 0px;
+   padding-left:15px ;
+   padding-right:10px;
+   width:calc(100% - 16px);
+   border: none;
+   outline: none;
+   background-color: transparent;
+
+}
+.askDoctor , .register {
+   display:flex;
+}
+
+.askDoctorIcon , .registerIcon {
+   width:30px;
+   height: 27px;
+   margin-right: 10px;
+
+   
+}
+.container2LastItem {
+   display:flex;
+   align-items: center;
+   margin-left:32.975px;
+   
+
+}
+
+
+.container3 {
+   display:flex;
+   justify-content:space-between;
+   padding: 0 190px;
+   align-items: center;
+   border-bottom: 1px solid #f8f8f8;
+   background-color: white;
+
+   }
+.container3 > div {
+   font-size: 16px;
+    color: #292940;
+    line-height: 24px;
+    cursor: pointer;
+    font-family: "Helvetica";
+    position:relative;
+}
+.container3 > div:nth-child(1)::before , .container3 > div:nth-child(2)::before , .container3 > div:nth-child(4)::before , .container3 > div:nth-child(5)::before , .container3 > div:nth-child(6)::before {
+   content: "";
+    background: url('https://vinmec.com/static/build/fade3ac79e858d6761b52c4c2f606c66.svg') no-repeat 50%;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 6px;
+    right: -25px;
+    background-size: contain;
+}
+.logoSocial {
+   position: relative;
+   background-color:#ffffff;
+   border:1px solid #eeeeee;
+   border-radius:20px;
+   padding: 3px 7px 3px 7px;
+   color: #9898a3
+   
+}
+.logoSocialFb:hover {
+   background-color:#0066a6;
+   color: #ffffff;
+
+}
+.logoSocialYt:hover {
+   background-color:#ff0000;
+   color: #ffffff;
+
+}
+.facebookLogo , .youtubeLogo{
+   position: absolute;
+   color: #fff;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 13px 15px;
+   cursor: pointer;
+   border-radius: 20px;
+
+}
+
+.containerMenu {
+   position: relative;
+   height: auto;
+   padding: 6px 6px;
+}
+.subMenu {
+   position: absolute;
+   top: 36px;
+   background-color:#f3f7fb;
+   width:297px;
+   display: none;
+}
+.containerMenu:hover .subMenu {
+   display: block;
+}
+.subMenu > div {
+   padding: 7px 15px;
+   text-align: left;
+}
+.subMenu > div:hover {
+   background-color:#a2d3f1;
+   color:#4ebbff
+}
+.overlay {
+   position:fixed;
+   top: -130px;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color:rgb(27, 27, 26 , .9);
+   z-index: 1000;
+   display:none;
+
+}
+.x {
+   display:block;
+
+}
+@media screen and (max-width:1400px) and (min-width:960px){
+   .container1 {
+     width: 100%;
+     padding: 0 80px;
+   }
+   .container2 {
+      width: 100%;
+      padding: 0 80px;
+    }
+    .container3 {
+      width: 100%;
+      padding: 0 80px;
+    }
+ }
+
+ @media screen and (max-width:959px) and (min-width:450px){
+   .container1 {
+     width: 100%;
+     padding: 0 50px;
+   }
+   .container2 {
+      width: 100%;
+      padding: 0 50px;
+    }
+    .container3 {
+      width: 100%;
+      padding: 0 50px;
+    }
+ }
+ @media screen and (max-width:449px) {
+   .container1 {
+     width: 100%;
+     padding: 0 30px;
+   }
+   .container2 {
+      width: 100%;
+      padding: 0 30px;
+    }
+    .container3 {
+      width: 100%;
+      padding: 0 30px;
+    }
+ }
+
+
+ @media screen and (max-width:1100px) {
+  .inputContainer {
+     display: none;
+  }
+  .container2Select {
+   display: none;
+
+  }
+  .container3 {
+   display: none;
+
+  }
+ }
+ @media screen and (min-width:751px) {
+ 
+   // .container1 {
+   //  display: none;
+ 
+   // }
+   .bar {
+      display: none;
+   }
+   .overlay {
+      position:fixed;
+      top: -130px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color:rgb(27, 27, 26 , .9);
+      z-index: 1000;
+      display:none;
+   
+   }
+  }
+ @media screen and (max-width:750px) {
+ 
+   .container1 {
+    display: none;
+ 
+   }
+   .askDoctor , .register , .i{
+      display: none;
+
+   }
+
+  }
+ 

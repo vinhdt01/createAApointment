@@ -18,13 +18,13 @@ exports.refreshToken = async (req, res) => {
       { username: data.username },
       process.env.JWT_ACCESS_KEY,
       {
-        expiresIn: "20s",
+        expiresIn: "5h",
       }
     );
     var newReFreshToken = jwt.sign(
       { id: userInfo },
       process.env.JWT_REFRESH_KEY,
-      { expiresIn: "5h" }
+      { expiresIn: "10h" }
     );
     refreshTokens.push(newReFreshToken);
     res.cookie("refreshToken", newReFreshToken, {
@@ -47,7 +47,7 @@ exports.Login = async (req, res) => {
       var refreshToken = jwt.sign(
         { id: userInfo },
         process.env.JWT_REFRESH_KEY,
-        { expiresIn: "5h" }
+        { expiresIn: "10h" }
       );
       refreshTokens.push(refreshToken);
       res.cookie("refreshToken", refreshToken, {

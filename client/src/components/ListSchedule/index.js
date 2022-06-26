@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Table } from "react-bootstrap";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Table, Button } from "react-bootstrap";
+import moment from "moment";
 import { listRequest } from "../../redux/Slices/listScheduleSlice.js";
 import { list } from "../../redux/Select/index.js";
 export default function ListSchedule() {
@@ -9,7 +10,7 @@ export default function ListSchedule() {
   const person_id = localStorage.getItem("person_id");
   const [bio, setBio] = useState([]);
   const select = useSelector(list);
-
+  const navigate = useNavigate();
   useEffect(async () => {
     dispatch(listRequest({ person_id }));
   }, []);
@@ -32,13 +33,16 @@ export default function ListSchedule() {
             select.map((value, index) => (
               <tr>
                 <td>{value.name}</td>
-                <td>{value.dateofbirth}</td>
-                <td>{value.dateofappointment}</td>
+                <td>{moment(value.dateofbirth).format("MMM DD,YYYY")}</td>
+                <td>
+                  {moment(value.dateofappointment).format(" MMM DD,YYYY")}
+                </td>
                 <td>{value.faculities}</td>
               </tr>
             ))}
         </tbody>
       </Table>
+      <Button onClick={() => navigate(-1)}>Back</Button>
     </div>
   );
 }

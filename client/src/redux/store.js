@@ -1,25 +1,23 @@
-import { configureStore   } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
-import registerReducer from './Slices/registerSlice'
-import loginReducer from './Slices/loginSlice'
-import scheduleReducer from './Slices/scheduleSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import createSagaMiddleware from "redux-saga";
+import registerReducer from "./Slices/registerSlice";
+import loginReducer from "./Slices/loginSlice";
+import scheduleReducer from "./Slices/scheduleSlice";
+import listReducer from "./Slices/listScheduleSlice";
 
-
-import rootSaga from './Sagas/index'
-const sagaMiddleware = createSagaMiddleware()
+import rootSaga from "./Sagas/index";
+const sagaMiddleware = createSagaMiddleware();
 const rootreducer = {
-    register:registerReducer,
-    login:loginReducer,
-    schedule:scheduleReducer
-
-  
- 
-   }
+  register: registerReducer,
+  login: loginReducer,
+  schedule: scheduleReducer,
+  listSchedule: listReducer,
+};
 const store = configureStore({
-    reducer: rootreducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+  reducer: rootreducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware),
+});
+sagaMiddleware.run(rootSaga);
 
- })
- sagaMiddleware.run(rootSaga)
-
-export default store 
+export default store;

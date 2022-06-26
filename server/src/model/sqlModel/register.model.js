@@ -36,7 +36,6 @@ var isExist ="Select username from users where username ="+`'${a}'`
 return await pool.request()
 .query(isExist , async function (err, data) {
     if(err) {
-      console.log('123')
       result(true , null)
        }
 else {

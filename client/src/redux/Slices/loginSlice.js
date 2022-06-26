@@ -1,49 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const loginSlice = createSlice({
-    name:'user',
-    initialState: {
-        name: '',
-        isLoading:false,
-        token:'',
-        status:'',
-        error:'',    
+  name: "user",
+  initialState: {
+    person_id: "",
+    isLoading: false,
+    token: "",
+    status: "",
+    error: "",
+  },
+  reducers: {
+    loginRequest: (state, action) => {
+      state.isLoading = true;
     },
-    reducers: {
-    loginRequest: (state , action) => {
- 
-  
-        state.isLoading = true;
 
-     
-      
-   },
-
-    loginSuccess: (state , action) => {
-         state.name = action.payload
-         state.token = action.payload.token
-         state.error = action.payload
-
-    
-       
+    loginSuccess: (state, action) => {
+      state.person_id = action.person_id;
+      state.token = false;
+      state.token = action.payload.token;
+      state.error = action.payload.error;
     },
-    loginFailure: (state , action) => {
-        state.isLoading = false;
-        state.error = action.payload
+    loginFailure: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
 
-   
-      
-   },
-   
-   loginStatus: (state , action) => {
-
-    state.status = action.payload.status
-   
-
-  
-},
-
-    }
-})
+    loginStatus: (state, action) => {
+      state.status = action.payload.status;
+    },
+  },
+});
 // const  {  reducer , actions} = registerSlice
-export const {loginRequest , loginSuccess , loginFailure , loginStatus } = loginSlice.actions
-export default loginSlice.reducer
+export const { loginRequest, loginSuccess, loginFailure, loginStatus } =
+  loginSlice.actions;
+export default loginSlice.reducer;

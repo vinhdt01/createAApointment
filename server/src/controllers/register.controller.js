@@ -8,7 +8,6 @@ exports.Register =async  (req , res) => {
   model.createRegister(req.body , function(err , data) {
   
      if(data==='') {
-       console.log('data')
        res.send({result:data , error:err , status:'404' })
      }
     else {
@@ -17,13 +16,6 @@ exports.Register =async  (req , res) => {
     }
   })
 
-// test
-// exports.Register =async  (req , res) => {
-//   model.all(req.body , function(err , data) {
-//    if(!err) {
-//      console.log(data)
-//    }
-//   })
 
 
 }

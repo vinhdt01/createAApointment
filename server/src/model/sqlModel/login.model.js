@@ -1,4 +1,4 @@
-const {conn , sql} = require('../../sql/connect.js')
+const { conn, sql } = require("../../sql/connect.js");
 // module.exports = function() {
 //   this.createRegister = async function( newData, result) {
 // var pool = await conn;
@@ -24,31 +24,30 @@ const {conn , sql} = require('../../sql/connect.js')
 
 // test
 
-module.exports = function() {
-  this.createLogin = async function( newData, result) {
-var pool = await conn;
-var uName= newData.username;
-var PWord = newData.password;
-var b = 0;
-var isExist ="Select username from users where username ="+`'${uName}'`+"and password ="+`'${PWord}'`
-return await pool.request()
-.query(isExist , async function (err, data) {
-    if(err) {
-      console.log('123')
-      result(true , null)
-       }
-else {
-  b = data.recordset.length
-  
-  if(b>0) {
+module.exports = function () {
+  this.createLogin = async function (newData, result) {
+    var pool = await conn;
+    var uName = newData.username;
+    var PWord = newData.password;
+    var b = 0;
+    var isExist =
+      "Select * from users where username =" +
+      `'${uName}'` +
+      "and password =" +
+      `'${PWord}'`;
+    return await pool.request().query(isExist, async function (err, data) {
+      if (err) {
+        console.log("123");
+        result(true, null);
+      } else {
+        b = data.recordset.length;
 
-    result(null , data)
-  }
-  else {
-
-    result(null , null)
-  }
-}     
-  })
-  }
-}
+        if (b > 0) {
+          result(null, data);
+        } else {
+          result(null, null);
+        }
+      }
+    });
+  };
+};

@@ -6,7 +6,6 @@ import clsx from "clsx";
 import { scheduleRequest } from "../../redux/Slices/scheduleSlice";
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 function Schedule() {
   const {
@@ -19,16 +18,13 @@ function Schedule() {
   const values = (state) => state.schedule.status;
   const a = useSelector(values);
   const navigate = useNavigate();
-  // const b = localStorage.getItem("token");
-  // const c = jwt_decode(b);
-  // console.log(c);
+
   const OnSubmit = (data) => {
-    var value = localStorage.getItem("token");
     var person_id = localStorage.getItem("person_id");
     data.person_id = person_id;
     console.log(data);
 
-    dispatch(scheduleRequest({ data, value }));
+    dispatch(scheduleRequest({ data }));
     navigate("/result");
   };
 

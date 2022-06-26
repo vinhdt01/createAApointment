@@ -7,12 +7,11 @@ import { list } from "../../redux/Select/index.js";
 export default function ListSchedule() {
   const dispatch = useDispatch();
   const person_id = localStorage.getItem("person_id");
-  const token = localStorage.getItem("token");
   const [bio, setBio] = useState([]);
   const select = useSelector(list);
 
   useEffect(async () => {
-    dispatch(listRequest({ person_id, token }));
+    dispatch(listRequest({ person_id }));
   }, []);
 
   return (

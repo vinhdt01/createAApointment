@@ -6,11 +6,7 @@ import {
 } from "../Slices/listScheduleSlice.js";
 import * as api from "../../api/index";
 export function* getSchedule(action) {
-  const data = yield call(
-    api.getSchedule,
-    action.payload.person_id,
-    action.payload.token
-  );
+  const data = yield call(api.getSchedule, action.payload.person_id);
   console.log(data.data);
   yield put(listSuccess(data));
 }

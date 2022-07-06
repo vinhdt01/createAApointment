@@ -11,8 +11,21 @@ export default function ListSchedule() {
   const [bio, setBio] = useState([]);
   const select = useSelector(list);
   const navigate = useNavigate();
+ function getCookie(name) {
+    let cookie = {};
+    document.cookie.split(";").forEach(function (el) {
+      let [k, v] = el.split("=");
+      cookie[k.trim()] = v;
+    });
+    return cookie[name];
+  }
   useEffect(async () => {
-    dispatch(listRequest({ person_id }));
+    var refreshToken = getCookie("refreshToken");
+    if (refreshToken) {
+      dispatch(listRequest({ person_id }));
+    } else {
+      navigate("/login");
+    }
   }, []);
 
   return (

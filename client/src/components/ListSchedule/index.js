@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import clsx from "clsx";
 import { Table, Button } from "react-bootstrap";
 import moment from "moment";
 import { listRequest } from "../../redux/Slices/listScheduleSlice.js";
 import { list } from "../../redux/Select/index.js";
+import styles from "./ListSchedule.module.scss";
 export default function ListSchedule() {
   const dispatch = useDispatch();
   const person_id = localStorage.getItem("person_id");
   const [bio, setBio] = useState([]);
   const select = useSelector(list);
   const navigate = useNavigate();
- function getCookie(name) {
+  function getCookie(name) {
     let cookie = {};
     document.cookie.split(";").forEach(function (el) {
       let [k, v] = el.split("=");
@@ -29,16 +31,16 @@ export default function ListSchedule() {
   }, []);
 
   return (
-    <div>
-      <h1>Hello World</h1>
-
-      <Table striped bordered hover>
+    <div className={clsx(styles.wrapper)}>
+      <h1>List Schedule</h1>
+      <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>Full Name</th>
-            <th>Date of Birth</th>
-            <th>Date of Appointment</th>
-            <th>Faculities</th>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
@@ -51,11 +53,16 @@ export default function ListSchedule() {
                   {moment(value.dateofappointment).format(" MMM DD,YYYY")}
                 </td>
                 <td>{value.faculities}</td>
+                <td>
+                  <a href="#">Xóa</a>
+                </td>
               </tr>
             ))}
         </tbody>
       </Table>
-      <Button onClick={() => navigate(-1)}>Back</Button>
+      <Button className={clsx(styles.btn)} onClick={() => navigate(-1)}>
+        Back
+      </Button>
     </div>
   );
 }

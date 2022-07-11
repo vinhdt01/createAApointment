@@ -35,6 +35,8 @@ exports.refreshToken = async (req, res) => {
     res.json({ accessToken, a: "1" });
   });
 };
+exports.Logout = async (req, res) => {};
+
 exports.Login = async (req, res) => {
   userInfo = req.body.username;
   model.createLogin(req.body, function (err, data) {
@@ -42,7 +44,7 @@ exports.Login = async (req, res) => {
       res.send({ result: data, error: err, status: 404 });
     } else {
       var token = jwt.sign({ id: userInfo }, process.env.JWT_ACCESS_KEY, {
-        expiresIn: "20s",
+        expiresIn: "5h",
       });
       var refreshToken = jwt.sign(
         { id: userInfo },

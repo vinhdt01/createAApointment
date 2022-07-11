@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+  .scheduleIcon {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    font-size: 1.2rem;
+    background-color: rgb(25, 118, 211);
+    padding: 17px 18px;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+@media (max-width: 750px) {
+  .wrapper {
+    .scheduleIcon {
+      display: none;
+    }
+  }
+}

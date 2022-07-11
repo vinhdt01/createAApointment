@@ -9,7 +9,7 @@ import Login from "../src/components/Login/index";
 import Register from "../src/components/Register/index";
 import Result from "../src/components/result";
 import ListSchedule from "../src/components/ListSchedule/index";
-
+import Container from "../src/components/Container/index";
 import { Routes, Route } from "react-router-dom";
 // axios.defaults.withCredentials = true;
 function App() {
@@ -22,16 +22,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Menu />
-              <Slide />
-              <Schedule />
-            </>
-          }
-        />
+        <Route path="/" element={<Container />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="result" element={<Result />} />

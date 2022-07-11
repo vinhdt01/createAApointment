@@ -1,0 +1,10 @@
+.wrapper {
+  margin-top: 100px;
+  padding: 0 30px;
+  display: none;
+}
+@media (max-width: 750px) {
+  .wrapper {
+    display: block;
+  }
+}

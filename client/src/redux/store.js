@@ -4,6 +4,7 @@ import registerReducer from "./Slices/registerSlice";
 import loginReducer from "./Slices/loginSlice";
 import scheduleReducer from "./Slices/scheduleSlice";
 import listReducer from "./Slices/listScheduleSlice";
+import logoutReducer from "./Slices/logoutSlice";
 
 import rootSaga from "./Sagas/index";
 const sagaMiddleware = createSagaMiddleware();
@@ -12,6 +13,7 @@ const rootreducer = {
   login: loginReducer,
   schedule: scheduleReducer,
   listSchedule: listReducer,
+  logout: logoutReducer,
 };
 const store = configureStore({
   reducer: rootreducer,

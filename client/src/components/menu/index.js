@@ -1,17 +1,26 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 import styles from "./Index.module.scss";
 import clsx from "clsx";
 import NavMobile from "../NavMobile/index";
 import MenuForMobile from "../MenuForMobile/index.js";
+import { logoutRequest } from "../../redux/Slices/logoutSlice";
 function Menu() {
+  const dispatch = useDispatch();
   const [changeLogin, setChangeLogin] = useState(true);
   const [changeLogout, setChangeLogout] = useState(false);
   const [hide, setHide] = useState(false);
 
   var data = localStorage.getItem("token");
-
+  function getCookie(name) {
+    let cookie = {};
+    document.cookie.split(";").forEach(function (el) {
+      let [k, v] = el.split("=");
+      cookie[k.trim()] = v;
+    });
+    return cookie[name];
+  }
   var navigate = useNavigate();
   const handleSchedule = () => {
     if (!data) {
@@ -21,26 +30,23 @@ function Menu() {
     }
   };
   const removeHandle = () => {
+    dispatch(logoutRequest());
     localStorage.removeItem("token");
     setChangeLogin(!changeLogin);
     setChangeLogout(!changeLogout);
-    window.location.reload();
+    // window.location.reload();
   };
   const appearSideBar = () => {
     console.log("hode");
     setHide(!hide);
   };
+  var rfToken = getCookie("refreshToken");
   useEffect(() => {
-    if (data) {
+    if (rfToken) {
       setChangeLogin(!changeLogin);
       setChangeLogout(!changeLogout);
     }
-    // else {
-    //   setChangeLogin(changeLogin)
-    //   setChangeLogout(changeLogout)
-
-    // }
-  }, [data]);
+  }, [rfToken]);
   return (
     <div className={clsx(styles.first)}>
       <div className={clsx(styles.container)}>

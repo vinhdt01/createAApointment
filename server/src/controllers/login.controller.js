@@ -2,7 +2,7 @@ var jwt = require("jsonwebtoken");
 const { conn, sql } = require("../sql/connect.js");
 const Login = require("../model/sqlModel/login.model.js");
 const model = new Login();
-const refreshTokens = [];
+var refreshTokens = [];
 var userInfo = "";
 exports.refreshToken = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
@@ -35,7 +35,17 @@ exports.refreshToken = async (req, res) => {
     res.json({ accessToken, a: "1" });
   });
 };
-exports.Logout = async (req, res) => {};
+exports.Logout = async (req, res) => {
+  res.clearCookie("refreshToken");
+  console.log(refreshTokens, "1");
+
+  refreshTokens = refreshTokens.filter(
+    (token) => token !== req.cookies.refreshToken
+  );
+  console.log(refreshTokens, "2");
+
+  res.status(200).json("logout success");
+};
 
 exports.Login = async (req, res) => {
   userInfo = req.body.username;
@@ -57,6 +67,8 @@ exports.Login = async (req, res) => {
         secure: true,
         expires: new Date(Date.now() + 60000 * 60 * 10),
       });
+      console.log("login", refreshTokens);
+
       res.json({
         person_id: data.recordset[0].person_id,
         error: err,

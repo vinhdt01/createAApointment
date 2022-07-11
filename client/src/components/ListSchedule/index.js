@@ -21,6 +21,14 @@ export default function ListSchedule() {
     });
     return cookie[name];
   }
+  const myFunction = (id) => {
+    let text;
+    if (window.confirm("Press a button!") == true) {
+      console.log("You pressed OK!", id);
+    } else {
+      console.log("You canceled!");
+    }
+  };
   useEffect(async () => {
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
@@ -54,7 +62,9 @@ export default function ListSchedule() {
                 </td>
                 <td>{value.faculities}</td>
                 <td>
-                  <a href="#">Xóa</a>
+                  <a href="#" onClick={() => myFunction(value._id)}>
+                    Xóa
+                  </a>
                 </td>
               </tr>
             ))}

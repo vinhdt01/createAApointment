@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
-import { Table, Button } from "react-bootstrap";
+import { Table, Modal, Button } from "react-bootstrap";
 import moment from "moment";
 import { listRequest } from "../../redux/Slices/listScheduleSlice.js";
 import { list } from "../../redux/Select/index.js";
@@ -10,9 +11,10 @@ import styles from "./ListSchedule.module.scss";
 export default function ListSchedule() {
   const dispatch = useDispatch();
   const person_id = localStorage.getItem("person_id");
-  const [bio, setBio] = useState([]);
   const select = useSelector(list);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
   function getCookie(name) {
     let cookie = {};
     document.cookie.split(";").forEach(function (el) {
@@ -21,14 +23,7 @@ export default function ListSchedule() {
     });
     return cookie[name];
   }
-  const myFunction = (id) => {
-    let text;
-    if (window.confirm("Press a button!") == true) {
-      console.log("You pressed OK!", id);
-    } else {
-      console.log("You canceled!");
-    }
-  };
+
   useEffect(async () => {
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
@@ -38,8 +33,32 @@ export default function ListSchedule() {
     }
   }, []);
 
+  const handleClose = () => {
+    setShow(false);
+    console.log("hideshow", show);
+  };
+  const handleShow = () => {
+    setShow(true);
+    console.log("show", show);
+  };
   return (
     <div className={clsx(styles.wrapper)}>
+      <div className={clsx(styles.popup)}>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
       <h1>List Schedule</h1>
       <Table striped bordered hover size="sm">
         <thead>
@@ -62,7 +81,7 @@ export default function ListSchedule() {
                 </td>
                 <td>{value.faculities}</td>
                 <td>
-                  <a href="#" onClick={() => myFunction(value._id)}>
+                  <a href="#" onClick={handleShow}>
                     Xóa
                   </a>
                 </td>

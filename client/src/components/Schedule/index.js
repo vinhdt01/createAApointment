@@ -22,7 +22,6 @@ function Schedule() {
   const OnSubmit = (data) => {
     var person_id = localStorage.getItem("person_id");
     data.person_id = person_id;
-    console.log(data);
 
     dispatch(scheduleRequest({ data }));
     navigate("/result");
@@ -134,18 +133,3 @@ function Schedule() {
   );
 }
 export default Schedule;
-
-// import { useSelector } from 'react-redux';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-//   const value = (state) => state.schedule.status
-//   const a = useSelector(value)
-//   console.log(a)
-// if(a==='successfully') {
-// console.log('successfully 123')
-// }
-// const notify = () => toast("Wow so easy!");
-// <div>
-// <button onClick={notify}>Notify!</button>
-// <ToastContainer />
-// </div>

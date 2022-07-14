@@ -19,6 +19,7 @@
     "mongoose": "^6.3.2",
     "msnodesqlv8": "^2.4.7",
     "mssql": "^8.1.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
   }
 }

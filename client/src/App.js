@@ -13,12 +13,7 @@ import Container from "../src/components/Container/index";
 import { Routes, Route } from "react-router-dom";
 // axios.defaults.withCredentials = true;
 function App() {
-  // var Status = (state) => useSelector(state.schedule.status)
-  // console.log(Status)
-  //  React.useEffect(() => {
   axios.defaults.withCredentials = true;
-
-  //  } , [])
   return (
     <div className="App">
       <Routes>

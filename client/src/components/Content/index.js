@@ -6,7 +6,7 @@ function Content() {
     <div className={clsx(styles.wrapper)}>
       <Row xs={1} sm={2} className="g-4">
         {Array.from({ length: 4 }).map((_, idx) => (
-          <Col>
+          <Col key={Math.random()}>
             <Card>
               <Card.Img
                 variant="top"

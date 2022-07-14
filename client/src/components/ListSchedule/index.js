@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { Table, Modal, Button } from "react-bootstrap";
 import moment from "moment";
 import { listRequest } from "../../redux/Slices/listScheduleSlice.js";
+import { deleteRequest } from "../../redux/Slices/deleteSlice.js";
 import { list } from "../../redux/Select/index.js";
 import styles from "./ListSchedule.module.scss";
 export default function ListSchedule() {
@@ -14,7 +15,7 @@ export default function ListSchedule() {
   const select = useSelector(list);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-
+  const [id, setId] = useState("");
   function getCookie(name) {
     let cookie = {};
     document.cookie.split(";").forEach(function (el) {
@@ -35,11 +36,14 @@ export default function ListSchedule() {
 
   const handleClose = () => {
     setShow(false);
-    console.log("hideshow", show);
   };
-  const handleShow = () => {
+  const handleShow = (_id) => {
     setShow(true);
-    console.log("show", show);
+    setId(_id);
+  };
+  const handleDelete = async () => {
+    setShow(false);
+    dispatch(deleteRequest(id));
   };
   return (
     <div className={clsx(styles.wrapper)}>
@@ -53,7 +57,7 @@ export default function ListSchedule() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={() => handleDelete()}>
               Save Changes
             </Button>
           </Modal.Footer>
@@ -73,7 +77,7 @@ export default function ListSchedule() {
         <tbody>
           {select &&
             select.map((value, index) => (
-              <tr>
+              <tr key={index}>
                 <td>{value.name}</td>
                 <td>{moment(value.dateofbirth).format("MMM DD,YYYY")}</td>
                 <td>
@@ -81,7 +85,11 @@ export default function ListSchedule() {
                 </td>
                 <td>{value.faculities}</td>
                 <td>
-                  <a href="#" onClick={handleShow}>
+                  <a
+                    className={clsx(styles.textA)}
+                    href="#"
+                    onClick={() => handleShow(value._id)}
+                  >
                     Xóa
                   </a>
                 </td>
@@ -89,7 +97,7 @@ export default function ListSchedule() {
             ))}
         </tbody>
       </Table>
-      <Button className={clsx(styles.btn)} onClick={() => navigate(-1)}>
+      <Button className={clsx(styles.btn)} onClick={() => navigate("/")}>
         Back
       </Button>
     </div>

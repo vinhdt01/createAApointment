@@ -11,6 +11,5 @@ export function* schedule(action) {
   } catch (err) {}
 }
 export default function* scheduleSaga() {
-  console.log("userSagaxx");
   yield takeLatest(scheduleRequest.type, schedule);
 }

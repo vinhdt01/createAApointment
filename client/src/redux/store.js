@@ -5,7 +5,7 @@ import loginReducer from "./Slices/loginSlice";
 import scheduleReducer from "./Slices/scheduleSlice";
 import listReducer from "./Slices/listScheduleSlice";
 import logoutReducer from "./Slices/logoutSlice";
-
+import deleteSlice from "./Slices/deleteSlice";
 import rootSaga from "./Sagas/index";
 const sagaMiddleware = createSagaMiddleware();
 const rootreducer = {
@@ -14,11 +14,14 @@ const rootreducer = {
   schedule: scheduleReducer,
   listSchedule: listReducer,
   logout: logoutReducer,
+  delete: deleteSlice,
 };
 const store = configureStore({
   reducer: rootreducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(sagaMiddleware),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(sagaMiddleware),
 });
 sagaMiddleware.run(rootSaga);
 

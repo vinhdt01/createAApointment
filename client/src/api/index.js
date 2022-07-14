@@ -18,8 +18,6 @@ axiosJwt.interceptors.request.use(
 
       return config;
     } else {
-      // var refreshTk = getCookie("refreshToken");
-      // console.log(refreshTk)
       const response = await axios.post(`${URL}/refreshToken`);
       localStorage.setItem("token", response.data.accessToken);
       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
@@ -48,8 +46,8 @@ export const getSchedule = (payload) =>
 export const refreshToken = (payload) =>
   axios.post(`${URL}/refreshToken`, payload);
 export const logout = () =>
-  axios.get(`${URL}/logout`, {
+  axiosJwt.get(`${URL}/logout`, {
     withCredentials: true,
   });
 export const deleteSchedule = (payload) =>
-  axios.delete(`${URL}/delete/${payload}`);
+  axiosJwt.delete(`${URL}/delete/${payload}`);

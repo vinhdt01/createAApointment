@@ -4,6 +4,8 @@ import loginSaga from "./loginSaga";
 import schedule from "./scheduleSaga";
 import listScheduleSage from "./listSchedule";
 import logoutSaga from "./logoutSaga";
+import deleteSage from "./deleteSaga";
+
 export default function* rootSaga() {
   yield all([
     registerSaga(),
@@ -11,5 +13,6 @@ export default function* rootSaga() {
     schedule(),
     listScheduleSage(),
     logoutSaga(),
+    deleteSage(),
   ]);
 }

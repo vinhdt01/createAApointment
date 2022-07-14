@@ -12,7 +12,10 @@ export const listScheduleSlice = createSlice({
     },
 
     listSuccess: (state, action) => {
-      state.data.push(action.payload.data);
+      state.data = action.payload.data;
+    },
+    removeListSuccess: (state, action) => {
+      state.data = state.data.filter((state) => state._id !== action.payload);
     },
     listFailure: (state, action) => {
       state.isLoading = false;
@@ -20,6 +23,6 @@ export const listScheduleSlice = createSlice({
   },
 });
 // const  {  reducer , actions} = registerSlice
-export const { listRequest, listSuccess, listFailure } =
+export const { listRequest, listSuccess, removeListSuccess, listFailure } =
   listScheduleSlice.actions;
 export default listScheduleSlice.reducer;

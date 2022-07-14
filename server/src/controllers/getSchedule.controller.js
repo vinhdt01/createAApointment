@@ -5,7 +5,7 @@ exports.getSchedule = async (req, res) => {
     const count = await Schedule.find({
       person_id: req.headers["person_id"],
     });
-    console.log(count);
+
     res.json(count);
   } catch (err) {
     res.status(400);

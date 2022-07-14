@@ -31,13 +31,12 @@ function Menu() {
   };
   const removeHandle = () => {
     dispatch(logoutRequest());
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
     setChangeLogin(!changeLogin);
     setChangeLogout(!changeLogout);
     // window.location.reload();
   };
   const appearSideBar = () => {
-    console.log("hode");
     setHide(!hide);
   };
   var rfToken = getCookie("refreshToken");

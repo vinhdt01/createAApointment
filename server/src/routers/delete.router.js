@@ -5,6 +5,6 @@ const {
 } = require("../controllers/deleteSchedule.controller.js");
 const { Auth } = require("../middleware/auth.middleware.js");
 
-router.delete("/", Auth, deleteSchedule);
+router.delete("/:slug", Auth, deleteSchedule);
 
 module.exports = router;

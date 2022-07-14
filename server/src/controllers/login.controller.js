@@ -36,15 +36,17 @@ exports.refreshToken = async (req, res) => {
   });
 };
 exports.Logout = async (req, res) => {
-  res.clearCookie("refreshToken");
-  console.log(refreshTokens, "1");
+  try {
+    res.clearCookie("refreshToken");
 
-  refreshTokens = refreshTokens.filter(
-    (token) => token !== req.cookies.refreshToken
-  );
-  console.log(refreshTokens, "2");
+    refreshTokens = refreshTokens.filter(
+      (token) => token !== req.cookies.refreshToken
+    );
 
-  res.status(200).json("logout success");
+    res.status(200).json("logout success");
+  } catch (err) {
+    res.status(400).json("Failure");
+  }
 };
 
 exports.Login = async (req, res) => {
@@ -67,7 +69,6 @@ exports.Login = async (req, res) => {
         secure: true,
         expires: new Date(Date.now() + 60000 * 60 * 10),
       });
-      console.log("login", refreshTokens);
 
       res.json({
         person_id: data.recordset[0].person_id,

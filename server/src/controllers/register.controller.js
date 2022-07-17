@@ -1,21 +1,21 @@
+const { v4: uuidv4 } = require("uuid");
 
-var jwt = require('jsonwebtoken');
-const {conn , sql} = require('../sql/connect.js')
-const Register = require('../model/sqlModel/register.model.js')
-const model = new Register;
+const Authen = require("../model/mongoseModel/authen.model.js");
 
-exports.Register =async  (req , res) => {
-  model.createRegister(req.body , function(err , data) {
-  
-     if(data==='') {
-       res.send({result:data , error:err , status:'404' })
-     }
-    else {
-      
-      res.send({result:data , error:err  , status:'ok'})
+exports.Register = async (req, res) => {
+  try {
+    const findUsers = await Authen.count({
+      username: req.body.username,
+    });
+    if (findUsers > 0) {
+      res.status(500).json({ status: "account already created" });
+    } else {
+      const User = new Authen(req.body);
+      User.person_id = uuidv4();
+      User.save();
+      res.status(200).json({ status: "ok" });
     }
-  })
-
-
-
-}
+  } catch (error) {
+    res.status(500).json({ status: "none", error: error });
+  }
+};

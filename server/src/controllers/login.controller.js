@@ -1,7 +1,6 @@
 var jwt = require("jsonwebtoken");
-const { conn, sql } = require("../sql/connect.js");
-const Login = require("../model/sqlModel/login.model.js");
-const model = new Login();
+const Authen = require("../model/mongoseModel/authen.model.js");
+
 var refreshTokens = [];
 var userInfo = "";
 exports.refreshToken = async (req, res) => {
@@ -51,9 +50,14 @@ exports.Logout = async (req, res) => {
 
 exports.Login = async (req, res) => {
   userInfo = req.body.username;
-  model.createLogin(req.body, function (err, data) {
-    if (data === null) {
-      res.send({ result: data, error: err, status: 404 });
+  console.log(req.body);
+  try {
+    const findUser = await Authen.find({
+      username: req.body.username,
+    });
+    console.log(findUser);
+    if (!findUser) {
+      res.status(404).json({ status: "not found account" });
     } else {
       var token = jwt.sign({ id: userInfo }, process.env.JWT_ACCESS_KEY, {
         expiresIn: "5h",
@@ -70,13 +74,15 @@ exports.Login = async (req, res) => {
         expires: new Date(Date.now() + 60000 * 60 * 10),
       });
 
-      res.json({
-        person_id: data.recordset[0].person_id,
-        error: err,
+      res.status(200).json({
+        person_id: findUser[0].person_id,
         token: token,
         status: "ok",
         refreshToken: refreshToken,
       });
     }
-  });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: error });
+  }
 };

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, useCallback } from "react";
-
+import moment from "moment";
 import clsx from "clsx";
 import { scheduleRequest } from "../../redux/Slices/scheduleSlice";
 import styles from "./index.module.scss";
@@ -18,7 +18,9 @@ function Schedule() {
   const values = (state) => state.schedule.status;
   const a = useSelector(values);
   const navigate = useNavigate();
-
+  const today = new Date();
+  let tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
   const OnSubmit = (data) => {
     var person_id = localStorage.getItem("person_id");
     data.person_id = person_id;
@@ -86,6 +88,7 @@ function Schedule() {
                 <input
                   type="date"
                   name="dateofappointment"
+                  min={moment(tomorrow).format("YYYY-MM-DD")}
                   {...register("dateofappointment", { required: true })}
                 />
                 {errors.dateofappointment?.type === "required" &&

@@ -1,0 +1,69 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+.container1 {
+  height: 100vh;
+
+  border-right: 1px solid rgb(226, 217, 217);
+}
+.item1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+  align-items: center;
+}
+.faBars {
+  padding: 8px 10px;
+  font-size: 1.2rem;
+  color: #707579;
+  border-radius: 999px;
+  &:hover {
+    background-color: #e2ebf3;
+  }
+}
+.searchContact {
+  flex: 1;
+  height: 40px;
+  border-radius: 999px;
+  padding-left: 15px;
+  border: 1px solid #e5e7ea;
+}
+
+.searchContact:focus {
+  outline: none !important;
+  border-color: #719ece;
+}
+
+.subItem2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e9eef2;
+  }
+  height: 72px;
+  .avatar {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 999px;
+  }
+  .brief {
+    flex: 1;
+    padding: 1px 7px 1px 9px;
+    text-align: left;
+    font-weight: 600;
+    font-family: Roboto, "Helvetica Neue";
+    .name {
+      margin: unset;
+      margin-top: 10px;
+    }
+    .briefMessage {
+      color: #71767a;
+    }
+  }
+}

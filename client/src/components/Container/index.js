@@ -1,8 +1,12 @@
-import clsx from "clsx";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 import styles from "./Container.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarCheck,
+  faCircleQuestion,
+} from "@fortawesome/free-solid-svg-icons";
 import Menu from "../menu/index";
 import Slide from "../Slide/index";
 import Schedule from "../Schedule/index";
@@ -20,6 +24,12 @@ function Container() {
       <div ref={myRef}>
         <Schedule />
       </div>
+      <Link to="/chat">
+        <FontAwesomeIcon
+          icon={faCircleQuestion}
+          className={clsx(styles.questionIcon)}
+        />
+      </Link>
       <FontAwesomeIcon
         icon={faCalendarCheck}
         className={clsx(styles.scheduleIcon)}

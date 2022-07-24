@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Button } from "react-bootstrap";
 import styles from "./ChatWindow.module.scss";
 function ChatWindow() {
   return (
@@ -12,6 +13,16 @@ function ChatWindow() {
           <span>Name</span>
         </div>
         <div>Hello</div>
+      </div>
+      <div className={styles.chatArea}>
+        <input
+          type="text"
+          className={styles.text}
+          placeholder="Enter your messages..."
+        />
+        <Button variant="primary" className={styles.btnText}>
+          Send
+        </Button>
       </div>
     </div>
   );

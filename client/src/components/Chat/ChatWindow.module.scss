@@ -19,3 +19,24 @@
   object-fit: cover;
   border-radius: 999px;
 }
+.chatArea {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 395px;
+  .btnText {
+    width: 100px;
+    height: 36px;
+  }
+  .text {
+    float: left;
+    width: calc(100% - 120px);
+    height: 36px;
+    padding-left: 10px;
+    border-radius: 20px 20px;
+    border: 1px solid #c8cbce;
+    &:focus {
+      outline-color: #8cb8e4;
+    }
+  }
+}

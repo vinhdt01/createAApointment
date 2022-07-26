@@ -1,0 +1,28 @@
+.container {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.containerItem {
+  display: flex;
+  margin-top: 10px;
+}
+.contentContainer {
+  padding-left: 20px;
+  p {
+    margin-bottom: 0;
+    text-align: left;
+  }
+  p:first-child {
+    color: #88949f;
+  }
+  p:last-child {
+    color: #d6d6d6;
+  }
+}
+.avatarMessage {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 999px;
+}

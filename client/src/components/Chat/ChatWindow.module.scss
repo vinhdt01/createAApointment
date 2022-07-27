@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #b1aeae;
+  border-bottom: 1px solid rgb(226, 217, 217);
 }
 .headerItem {
   display: flex;
@@ -39,4 +39,11 @@
       outline-color: #8cb8e4;
     }
   }
+}
+.iconHeader {
+  color: #707579;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 10px;
+  margin-left: 5px;
 }

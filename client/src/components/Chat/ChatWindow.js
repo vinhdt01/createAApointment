@@ -1,5 +1,10 @@
 import clsx from "clsx";
 import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEllipsisVertical,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatWindow.module.scss";
 import Message from "./Message";
 function ChatWindow() {
@@ -13,7 +18,16 @@ function ChatWindow() {
           />
           <span>Name</span>
         </div>
-        <div>Hello</div>
+        <div>
+          <FontAwesomeIcon
+            icon={faEllipsisVertical}
+            className={clsx(styles.iconHeader)}
+          />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className={clsx(styles.iconHeader)}
+          />
+        </div>
       </div>
       <div>
         <Message />

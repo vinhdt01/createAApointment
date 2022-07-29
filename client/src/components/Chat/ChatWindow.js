@@ -11,23 +11,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatWindow.module.scss";
 import Message from "./Message";
-function ChatWindow() {
-  function getCookie(name) {
-    let cookie = {};
-    document.cookie.split(";").forEach(function (el) {
-      let [k, v] = el.split("=");
-      cookie[k.trim()] = v;
-    });
-    return cookie[name];
-  }
+function ChatWindow({ cookie, handleChangeLastMsg }) {
   const [msg, setMsg] = useState("");
 
-  const cookie = getCookie("refreshToken");
-  var decodedJwt = jwt_decode(cookie);
-  console.log(decodedJwt);
   const sendMessage = async (e) => {
     e.preventDefault();
-    if (decodedJwt) {
+    if (cookie) {
+      var decodedJwt = jwt_decode(cookie);
+
       if (msg) {
         await db.collection("messages").add({
           name: decodedJwt.id,
@@ -36,6 +27,8 @@ function ChatWindow() {
         });
         setMsg("");
       }
+    } else {
+      return;
     }
   };
   return (
@@ -45,6 +38,7 @@ function ChatWindow() {
           <img
             className={clsx(styles.avatar)}
             src="https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/xpckxpiu/2021_02_23/plo-1_qkis.jpg"
+            alt="avatar"
           />
           <span>Name</span>
         </div>
@@ -60,7 +54,7 @@ function ChatWindow() {
         </div>
       </div>
       <div>
-        <Message />
+        <Message handleChangeLastMsg={handleChangeLastMsg} cookie={cookie} />
       </div>
       <div className={styles.chatArea}>
         <form onSubmit={sendMessage}>

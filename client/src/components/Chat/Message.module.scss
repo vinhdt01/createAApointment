@@ -8,6 +8,11 @@
   display: flex;
   margin-top: 10px;
 }
+.containerItemMe {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
 .contentContainer {
   padding-left: 20px;
   p {

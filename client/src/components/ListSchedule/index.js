@@ -28,7 +28,7 @@ export default function ListSchedule() {
   useEffect(async () => {
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
-      dispatch(listRequest({ person_id }));
+      await dispatch(listRequest({ person_id }));
     } else {
       navigate("/login");
     }

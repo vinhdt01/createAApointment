@@ -14,7 +14,7 @@ export const loginSlice = createSlice({
     },
 
     loginSuccess: (state, action) => {
-      state.person_id = action.person_id;
+      state.person_id = action.payload.person_id;
       state.token = false;
       state.token = action.payload.token;
       state.error = action.payload.error;

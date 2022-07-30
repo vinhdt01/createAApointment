@@ -42,8 +42,9 @@
   padding: 0px 10px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: #a5cffb;
   &:hover {
-    background-color: #e9eef2;
+    background-color: #75bffb;
   }
   height: 72px;
   .avatar {
@@ -64,6 +65,11 @@
     }
     .briefMessage {
       color: #71767a;
+    }
+    div {
+      max-width: 269;
+      height: 24px;
+      overflow: hidden;
     }
   }
 }

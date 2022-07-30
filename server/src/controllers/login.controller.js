@@ -50,12 +50,10 @@ exports.Logout = async (req, res) => {
 
 exports.Login = async (req, res) => {
   userInfo = req.body.username;
-  console.log(req.body);
   try {
     const findUser = await Authen.find({
       username: req.body.username,
     });
-    console.log(findUser);
     if (!findUser) {
       res.status(404).json({ status: "not found account" });
     } else {
@@ -82,7 +80,6 @@ exports.Login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).json({ status: error });
   }
 };

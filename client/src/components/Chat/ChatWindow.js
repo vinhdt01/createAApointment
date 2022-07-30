@@ -11,24 +11,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatWindow.module.scss";
 import Message from "./Message";
-function ChatWindow({ cookie, handleChangeLastMsg }) {
+function ChatWindow({ handleChangeLastMsg, cookie }) {
   const [msg, setMsg] = useState("");
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    if (cookie) {
-      var decodedJwt = jwt_decode(cookie);
+    var decodedJwt = jwt_decode(cookie);
 
-      if (msg) {
-        await db.collection("messages").add({
-          name: decodedJwt.id,
-          text: msg,
-          createAt: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-        setMsg("");
-      }
-    } else {
-      return;
+    if (msg) {
+      await db.collection("messages").add({
+        name: decodedJwt.id,
+        text: msg,
+        createAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      setMsg("");
     }
   };
   return (
@@ -40,7 +36,7 @@ function ChatWindow({ cookie, handleChangeLastMsg }) {
             src="https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/xpckxpiu/2021_02_23/plo-1_qkis.jpg"
             alt="avatar"
           />
-          <span>Name</span>
+          <span>Bộ y tế</span>
         </div>
         <div>
           <FontAwesomeIcon

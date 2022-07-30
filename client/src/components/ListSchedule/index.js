@@ -25,10 +25,10 @@ export default function ListSchedule() {
     return cookie[name];
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
-      await dispatch(listRequest({ person_id }));
+      dispatch(listRequest({ person_id }));
     } else {
       navigate("/login");
     }

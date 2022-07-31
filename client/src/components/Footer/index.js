@@ -47,7 +47,7 @@ function Footer() {
         <div>© 2022 - 2022 F8. Địa điểm chữa trị bệnh hàng đầu Việt Nam</div>
         <img
           className={clsx(styles.logoGoverment)}
-          src="https://acquykhoinguyendanang.com/wp-content/uploads/2021/03/logo-da-thong-bao-website-voi-bo-cong-thuong.png"
+          src="../../../public/bo-cong-thuong.png"
           alt="logo"
         />
       </div>

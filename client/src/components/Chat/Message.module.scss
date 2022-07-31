@@ -1,6 +1,5 @@
 .container {
   height: calc(100vh - 113px);
-  padding-bottom: 20px;
   padding: 20px 40px 0px 40px;
   overflow-y: auto;
   background-color: #f4f5f7;
@@ -48,27 +47,9 @@
   margin-left: 10px;
   margin-right: 20px;
 }
-// .containerItemMe {
-//   display: flex;
-//   margin-top: 10px;
-//   justify-content: flex-end;
-// }
-// .contentContainer {
-//   padding-left: 20px;
-//   p {
-//     margin-bottom: 0;
-//     text-align: left;
-//   }
-//   p:first-child {
-//     color: #88949f;
-//   }
-//   p:last-child {
-//     color: #d6d6d6;
-//   }
-// }
-// .avatarMessage {
-//   width: 40px;
-//   height: 40px;
-//   object-fit: cover;
-//   border-radius: 999px;
-// }
+
+@media (max-width: 500px) {
+  .container {
+    padding: 20px 20px 0px 20px;
+  }
+}

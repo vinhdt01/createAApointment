@@ -52,11 +52,11 @@ function Menu() {
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.container1)}>
           <div className={clsx(styles.item1)}>
-            <div>Tải ứng dụng MyVinmec</div>
+            <div>Tải ứng dụng Hello Bacsi</div>
             <div>|</div>
             <div>Hướng dẫn khách hàng</div>
             <div>|</div>
-            <div>Hệ thống Vinmec</div>
+            <div>Hệ thống </div>
           </div>
           <div className={clsx(styles.item2)}>
             <select style={{ marginRight: "10px" }}>

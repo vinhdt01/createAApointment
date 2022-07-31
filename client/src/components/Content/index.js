@@ -2,23 +2,39 @@ import { Row, Card, Col } from "react-bootstrap";
 import clsx from "clsx";
 import styles from "./Content.module.scss";
 function Content() {
+  const data = [
+    {
+      photoUrl:
+        "https://vinmec-prod.s3.amazonaws.com/images/vicaread/20210602_120205_960094_ai-0.jpeg",
+      title: "Sàng lọc đột quỵ nhanh",
+      content:
+        "Với đội ngũ có tay nghề , cùng với việc đầu tư các thiết bị đạt chuẩn chất lượng hàng đầu thế giới việc xét nghiệm đột vị vô cùng nhanh chóng",
+    },
+    {
+      photoUrl:
+        "https://vinmec-prod.s3.amazonaws.com/images/vicaread/20210602_115921_943199_ICon.jpeg",
+      title: "Hợp tác chiến lược",
+      content:
+        "Chúng tôi luôn hợp tác với các CDC tại các quốc gia có nền y học nổi tiếng trên thế giới , nhằm chia sẻ trao đổi kinh nghiệm các phát đồ điều trị các chứng bệnh",
+    },
+    {
+      photoUrl:
+        "https://vinmec-prod.s3.amazonaws.com/images/vicaread/20210602_115652_716747_Bweb_Tim.ori.jpg",
+      title: "Mổ tim không đau",
+      content:
+        "Thấu hiểu được tâm lý sợ đau khi mổ tim , chúng tôi cũng có những bí quyết và những công nghệ giảm thiểu mức độ xâm lấn và tổn thương khi mổ tim",
+    },
+  ];
   return (
     <div className={clsx(styles.wrapper)}>
       <Row xs={1} sm={2} className="g-4">
-        {Array.from({ length: 4 }).map((_, idx) => (
-          <Col key={Math.random()}>
+        {data.map((value, index) => (
+          <Col key={index}>
             <Card>
-              <Card.Img
-                variant="top"
-                src="https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/vocgmvpi/2022_07_05/3-6857.jpg"
-              />
+              <Card.Img variant="top" src={value.photoUrl} />
               <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
+                <Card.Title>{value.title}</Card.Title>
+                <Card.Text>{value.content}</Card.Text>
               </Card.Body>
             </Card>
           </Col>

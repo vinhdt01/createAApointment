@@ -9,6 +9,8 @@ import Result from "../src/components/result";
 import ListSchedule from "../src/components/ListSchedule/index";
 import Container from "../src/components/Container/index";
 import Chat from "../src/components/Chat/index";
+import NotFound from "../src/components/NotFound/index";
+
 import { Routes, Route } from "react-router-dom";
 // axios.defaults.withCredentials = true;
 function App() {
@@ -16,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Container />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

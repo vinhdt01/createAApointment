@@ -97,6 +97,12 @@ export default function ListSchedule() {
             ))}
         </tbody>
       </Table>
+      {select.length === 0 ? (
+        <h1 style={{ color: "#d4bbbb" }}>None to display</h1>
+      ) : (
+        <br />
+      )}
+
       <Button className={clsx(styles.btn)} onClick={() => navigate("/")}>
         Back
       </Button>

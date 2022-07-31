@@ -37,7 +37,7 @@ function Chat() {
   return (
     <Container fluid className={clsx(styles.wrapper)}>
       <Row>
-        <Col sm={3} className={clsx(styles.container1)}>
+        <Col xl={3} className={clsx(styles.container1)}>
           <div className={clsx(styles.item1)}>
             <FontAwesomeIcon icon={faBars} className={clsx(styles.faBars)} />
             <input
@@ -60,7 +60,7 @@ function Chat() {
             </div>
           </div>
         </Col>
-        <Col sm={9}>
+        <Col xl={9}>
           <ChatWindow
             handleChangeLastMsg={handleChangeLastMsg}
             cookie={refreshToken}

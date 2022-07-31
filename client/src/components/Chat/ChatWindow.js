@@ -20,7 +20,7 @@ function ChatWindow({ handleChangeLastMsg, cookie }) {
 
     if (msg) {
       await db.collection("messages").add({
-        name: decodedJwt.id,
+        name: decodedJwt?.id,
         text: msg,
         createAt: firebase.firestore.FieldValue.serverTimestamp(),
       });

@@ -41,7 +41,7 @@ function Message({ handleChangeLastMsg, cookie }) {
       {messages.map((value, index) => (
         <div
           className={
-            value.name === jwt_decode(cookie).id
+            value.name === jwt_decode(cookie)?.id
               ? clsx(styles.total)
               : clsx(styles.totals)
           }

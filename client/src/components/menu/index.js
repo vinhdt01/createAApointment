@@ -5,6 +5,7 @@ import styles from "./Index.module.scss";
 import clsx from "clsx";
 import NavMobile from "../NavMobile/index";
 import MenuForMobile from "../MenuForMobile/index.js";
+import images from "../../../src/assets/images";
 import { logoutRequest } from "../../redux/Slices/logoutSlice";
 function Menu() {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ function Menu() {
         </div>
         <div className={clsx(styles.container2)}>
           <img
-            src="https://www.vinmec.com/static/img/logo.9e7e5ef03cbd.svg"
+            src={images.logo}
             alt="logo"
             style={{ width: "80px", height: "50px" }}
           />

@@ -8,7 +8,9 @@ export function* schedule(action) {
     yield put(scheduleSuccess(data.data));
 
     // yield put(registerStatus(data.data));
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 }
 export default function* scheduleSaga() {
   yield takeLatest(scheduleRequest.type, schedule);

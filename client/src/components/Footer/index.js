@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import styles from "./footer.module.scss";
+import images from "../../../src/assets/images";
 function Footer() {
   return (
     <div className={clsx(styles.wrapper)}>
@@ -47,7 +48,7 @@ function Footer() {
         <div>© 2022 - 2022 F8. Địa điểm chữa trị bệnh hàng đầu Việt Nam</div>
         <img
           className={clsx(styles.logoGoverment)}
-          src="../../../public/bo-cong-thuong.png"
+          src={images.bocongthuong}
           alt="logo"
         />
       </div>

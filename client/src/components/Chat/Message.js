@@ -3,6 +3,7 @@ import { db } from "../../firebase/firebase";
 import { formatRelative } from "date-fns";
 import clsx from "clsx";
 import jwt_decode from "jwt-decode";
+import images from "../../../src/assets/images";
 
 import styles from "./Message.module.scss";
 function Message({ handleChangeLastMsg, cookie }) {
@@ -48,11 +49,24 @@ function Message({ handleChangeLastMsg, cookie }) {
           key={index}
         >
           <div className={clsx(styles.containerItem)}>
-            <img
+            {/* <img
               className={clsx(styles.avatarMessage)}
               alt="avatar"
               src="https://media.viezone.vn/prod/2021/10/23/large_whynotchao_246342056_275337984474361_4703727801110834922_n_61bfb6a899.jpg"
-            />
+            /> */}
+            {value.name === jwt_decode(cookie)?.id ? (
+              <img
+                className={clsx(styles.avatarMessage)}
+                alt="avatar"
+                src="https://picsum.photos/200"
+              />
+            ) : (
+              <img
+                className={clsx(styles.avatarMessage)}
+                alt="avatar"
+                src={images.chao}
+              />
+            )}
             <div className={clsx(styles.containerContent)}>
               <p>{value.name}</p>
               <p>{value.text}</p>

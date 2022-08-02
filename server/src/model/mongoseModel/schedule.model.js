@@ -33,6 +33,10 @@ const schema = new Schema(
 
       required: true,
     },
+    numberTurn: {
+      type: "number",
+      required: true,
+    },
   },
   {
     _id: false,

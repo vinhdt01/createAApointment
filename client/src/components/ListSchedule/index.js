@@ -24,7 +24,7 @@ export default function ListSchedule() {
     });
     return cookie[name];
   }
-
+  console.log("select", select);
   useEffect(() => {
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
@@ -50,9 +50,9 @@ export default function ListSchedule() {
       <div className={clsx(styles.popup)}>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Warming!!!</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>Your action won't be revive</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
@@ -68,21 +68,26 @@ export default function ListSchedule() {
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>#</th>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Appointment</th>
+            <th>Turn number</th>
+            <th>Faculity</th>
+            <th>Examination Department</th>
           </tr>
         </thead>
         <tbody>
           {select &&
             select.map((value, index) => (
               <tr key={index}>
+                <td>{index}</td>
                 <td>{value.name}</td>
                 <td>{moment(value.dateofbirth).format("MMM DD,YYYY")}</td>
                 <td>
                   {moment(value.dateofappointment).format(" MMM DD,YYYY")}
                 </td>
+                <td>{value.numberTurn}</td>
+
                 <td>{value.faculities}</td>
                 <td>
                   <a

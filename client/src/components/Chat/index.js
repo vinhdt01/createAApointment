@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import images from "../../../src/assets/images";
 
 import styles from "./Chat.module.scss";
 import Container from "react-bootstrap/Container";
@@ -49,7 +50,7 @@ function Chat() {
           <div className={clsx(styles.item2)}>
             <div className={clsx(styles.subItem2)}>
               <img
-                src="https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/xpckxpiu/2021_02_23/plo-1_qkis.jpg"
+                src={images.boyte}
                 alt="logo"
                 className={clsx(styles.avatar)}
               />

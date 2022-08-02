@@ -52,7 +52,7 @@ function Menu() {
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.container1)}>
           <div className={clsx(styles.item1)}>
-            <div>Tải ứng dụng Hello Bacsi</div>
+            <div>Tải ứng dụng Hey Doctor</div>
             <div>|</div>
             <div>Hướng dẫn khách hàng</div>
             <div>|</div>
@@ -173,15 +173,15 @@ function Menu() {
             className={clsx(styles.containerMenu)}
             style={{ padding: "6px 6px" }}
           >
-            Hệ thống Vinmec
+            Hệ thống Hey Doctor
             <div className={clsx(styles.subMenu)}>
-              <div>Vinmec Central Park (Tp.Hồ Chí Minh)</div>
-              <div>Vinmec Times City (Hà Nội)</div>
-              <div>Vinmec Đà Nẵng (Đà Nẵng)</div>
-              <div>Vinmec Nha Trang (Khánh Hòa)</div>
-              <div>Vinmec Hải Phòng (Hải Phòng)</div>
-              <div>Vinmec Hạ Long (Quảng Ninh)</div>
-              <div>Vinmec Phú Quốc (Kiên Giang)</div>
+              <div>Hey Doctor Central Park (Tp.Hồ Chí Minh)</div>
+              <div>Hey Doctor Times City (Hà Nội)</div>
+              <div>Hey Doctor Đà Nẵng (Đà Nẵng)</div>
+              <div>Hey Doctor Nha Trang (Khánh Hòa)</div>
+              <div>Hey Doctor Hải Phòng (Hải Phòng)</div>
+              <div>Hey Doctor Hạ Long (Quảng Ninh)</div>
+              <div>Hey Doctor Phú Quốc (Kiên Giang)</div>
               <div>Bệnh viện & Phòng khám</div>
               <div>Cơ sở vật chất</div>
             </div>

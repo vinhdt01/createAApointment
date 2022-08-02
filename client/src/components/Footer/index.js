@@ -18,7 +18,7 @@ function Footer() {
         </div>
 
         <div className={clsx(styles.item)}>
-          <div className={clsx(styles.Subitem)}>DỊCH VỤ HELLO BACSI</div>
+          <div className={clsx(styles.Subitem)}>DỊCH VỤ HEY DOCTOR</div>
 
           <div className={clsx(styles.Subitem)}>Giới thiệu</div>
           <div className={clsx(styles.Subitem)}>Đăng kí tư vấn</div>
@@ -33,19 +33,19 @@ function Footer() {
         </div>
         <div className={clsx(styles.item)}>
           <div className={clsx(styles.Subitem)}>
-            CÔNG TY CỔ PHẦN DỊCH VỤ Y TẾ HELLO BACSI
+            CÔNG TY CỔ PHẦN DỊCH VỤ Y TẾ HEY DOCTOR
           </div>
 
           <div className={clsx(styles.Subitem)}>Mã số thuế : 1912613948 </div>
           <div className={clsx(styles.Subitem)}>Ngày thành lập:20/02/2022</div>
           <div className={clsx(styles.Subitem)}>
-            Lĩnh vực: Sức khỏe y tế. Hello Bacsi xây dựng và phát triển những
+            Lĩnh vực: Sức khỏe y tế. Hey Doctor xây dựng và phát triển những
             dịch vụ mang lại giá trị cho cộng đồng.
           </div>
         </div>
       </div>
       <div className={clsx(styles.end)}>
-        <div>© 2022 - 2022 F8. Địa điểm chữa trị bệnh hàng đầu Việt Nam</div>
+        <div>© 2022 - 2022 . Địa điểm chữa trị bệnh hàng đầu Việt Nam</div>
         <img
           className={clsx(styles.logoGoverment)}
           src={images.bocongthuong}

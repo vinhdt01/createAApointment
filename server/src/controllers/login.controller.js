@@ -6,9 +6,9 @@ var userInfo = "";
 exports.refreshToken = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) res.sendStatus(401);
-  if (!refreshTokens.includes(refreshToken)) {
-    res.sendStatus(403);
-  }
+  // if (!refreshTokens.includes(refreshToken)) {
+  //   res.sendStatus(403);
+  // }
   jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, data) => {
     if (err) {
       res.sendStatus(403);
@@ -38,9 +38,9 @@ exports.Logout = async (req, res) => {
   try {
     res.clearCookie("refreshToken");
 
-    refreshTokens = refreshTokens.filter(
-      (token) => token !== req.cookies.refreshToken
-    );
+    // refreshTokens = refreshTokens.filter(
+    //   (token) => token !== req.cookies.refreshToken
+    // );
 
     res.status(200).json("logout success");
   } catch (err) {

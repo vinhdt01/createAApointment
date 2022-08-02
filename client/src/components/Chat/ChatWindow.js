@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatWindow.module.scss";
 import Message from "./Message";
+import images from "../../../src/assets/images";
+
 function ChatWindow({ handleChangeLastMsg, cookie }) {
   const [msg, setMsg] = useState("");
 
@@ -33,7 +35,7 @@ function ChatWindow({ handleChangeLastMsg, cookie }) {
         <div className={clsx(styles.headerItem)}>
           <img
             className={clsx(styles.avatar)}
-            src="https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/xpckxpiu/2021_02_23/plo-1_qkis.jpg"
+            src={images.boyte}
             alt="avatar"
           />
           <span>Bộ y tế</span>

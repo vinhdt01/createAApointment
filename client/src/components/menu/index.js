@@ -162,7 +162,11 @@ function Menu() {
             </div>
             <i
               className={clsx(styles.bar, "fa-solid fa-bars")}
-              style={{ paddingTop: "4px" }}
+              style={{
+                padding: "4px 4px",
+                cursor: "pointer",
+                fontSize: "1.2rem",
+              }}
               onClick={appearSideBar}
             ></i>
           </div>

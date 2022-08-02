@@ -19,7 +19,7 @@ function MenuForMobile() {
 
   return (
     <div className={clsx(styles.total)} style={{ cursor: "pointer" }}>
-      <ScheduleForMobile hide={hide} />
+      <ScheduleForMobile hide={hide} handleDisplay={handleDisplay} />
       <div className={clsx(styles.container)} onClick={() => handleDisplay()}>
         <div>
           <img

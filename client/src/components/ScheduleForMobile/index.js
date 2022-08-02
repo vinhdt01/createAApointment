@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import { scheduleRequest } from "../../redux/Slices/scheduleSlice.js";
 import clsx from "clsx";
 import styles from "./index.module.scss";
-function ScheduleForMobile({ hide }) {
+function ScheduleForMobile({ hide, handleDisplay }) {
   const {
     register,
     handleSubmit,
@@ -96,6 +98,11 @@ function ScheduleForMobile({ hide }) {
               Tạo lịch hẹn
             </button>
           </div>
+          <FontAwesomeIcon
+            icon={faX}
+            className={clsx(styles.X)}
+            onClick={handleDisplay}
+          />
         </div>
       </form>
     )

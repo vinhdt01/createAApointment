@@ -4,7 +4,6 @@ import * as api from "../../api/index";
 export function* schedule(action) {
   try {
     const data = yield call(api.createSchedule, action.payload.data);
-
     yield put(scheduleSuccess(data.data));
 
     // yield put(registerStatus(data.data));

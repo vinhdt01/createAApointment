@@ -51,3 +51,7 @@ export const logout = () =>
   });
 export const deleteSchedule = (payload) =>
   axiosJwt.delete(`${URL}/delete/${payload}`);
+export const updateSchedule = (payload) =>
+  axiosJwt.patch(`${URL}/update`, payload, {
+    withCredentials: true,
+  });

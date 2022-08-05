@@ -8,7 +8,6 @@ exports.Auth = async (req, res, next) => {
     res.send("Từ chối dịch vụ");
     return;
   }
-  console.log(token);
   await jwt.verify(token, process.env.JWT_ACCESS_KEY, (err, data) => {
     if (err) {
       res.json(err);

@@ -5,6 +5,7 @@ import schedule from "./scheduleSaga";
 import listScheduleSage from "./listSchedule";
 import logoutSaga from "./logoutSaga";
 import deleteSage from "./deleteSaga";
+import updateSage from "./updateSage";
 
 export default function* rootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export default function* rootSaga() {
     listScheduleSage(),
     logoutSaga(),
     deleteSage(),
+    updateSage(),
   ]);
 }

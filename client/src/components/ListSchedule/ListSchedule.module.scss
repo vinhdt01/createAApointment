@@ -14,3 +14,18 @@
   transform: translateX(-50%);
   width: 100%;
 }
+.updateContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  flex: 0.48;
+}
+.label {
+  width: 100%;
+}
+.sub {
+  width: 100%;
+}

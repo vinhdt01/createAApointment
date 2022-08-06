@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const route = require("./src/routers/index.js");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = 8080;
+const URL = process.env.PORT || 5000;
 dotenv.config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.use(cookieParser());
 route(app);
 mongoose.connect(process.env.URL_MONGOOESE).then(() => {
   console.log("connect to Db successfully");
-  app.listen(PORT, () => {
-    console.log(`listening on ${PORT}`);
+  app.listen(URL, () => {
+    console.log(`listening on ${URL}`);
   });
 });

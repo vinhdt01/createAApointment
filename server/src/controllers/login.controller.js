@@ -6,9 +6,7 @@ var userInfo = "";
 exports.refreshToken = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) res.sendStatus(401);
-  // if (!refreshTokens.includes(refreshToken)) {
-  //   res.sendStatus(403);
-  // }
+
   jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, data) => {
     if (err) {
       res.sendStatus(403);

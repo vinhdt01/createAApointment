@@ -1,7 +1,6 @@
 const Schedule = require("../model/mongoseModel/schedule.model.js");
 exports.updateSchedule = async (req, res) => {
   const data = req.body;
-  // console.log(dateFormat(data.dateofappointment, isoDate));
   try {
     const schedule = new Schedule(data);
 

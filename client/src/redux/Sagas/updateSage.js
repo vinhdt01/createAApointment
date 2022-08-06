@@ -1,4 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
+import { scheduleRequest, scheduleSuccess } from "../Slices/scheduleSlice";
 
 import {
   updateRequest,
@@ -9,7 +10,7 @@ import * as api from "../../api/index";
 export function* update(action) {
   const data = yield call(api.updateSchedule, action.payload);
   console.log(data);
-  yield put(updateSuccess(data.data));
+  yield put(scheduleSuccess(data.data));
 }
 export default function* updateSaga() {
   yield takeLatest(updateRequest.type, update);

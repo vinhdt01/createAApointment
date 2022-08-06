@@ -20,7 +20,7 @@ const schema = new Schema(
     },
 
     dateofappointment: {
-      type: "date",
+      type: "string",
       required: true,
     },
     faculities: {

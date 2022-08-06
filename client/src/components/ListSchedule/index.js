@@ -19,8 +19,7 @@ export default function ListSchedule() {
   const dispatch = useDispatch();
   const person_id = localStorage.getItem("person_id");
   const select = useSelector(list);
-  const selectStatus = useSelector(updateStatus);
-  console.log(useSelector(updateStatus));
+
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
@@ -38,13 +37,14 @@ export default function ListSchedule() {
   }
   console.log("select", select);
   useEffect(() => {
+    console.log("fetch");
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
       dispatch(listRequest({ person_id }));
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [dispatch, listRequest]);
 
   const handleClose = () => {
     setShow(false);
@@ -60,7 +60,7 @@ export default function ListSchedule() {
   };
   const handleDelete = async () => {
     setShow(false);
-    dispatch(deleteRequest(id));
+    dispatch(deleteRequest({ id, person_id }));
   };
   // const handleUpdate = async () => {
   //   setShow(false);
@@ -141,7 +141,7 @@ export default function ListSchedule() {
                   {errors.dateofbirth?.type === "required" &&
                     "dateofbirth is required"}
                 </div>
-                <div className={clsx(styles.items)}>
+                {/* <div className={clsx(styles.items)}>
                   <label className={clsx(styles.label)}>Appointment</label>
                   <Form.Control
                     className={clsx(styles.sub)}
@@ -156,9 +156,9 @@ export default function ListSchedule() {
                   />
                   {errors.dateofappointment?.type === "required" &&
                     "dateofappointment is required"}
-                </div>
+                </div> */}
               </div>
-              <div className={clsx(styles.updateContainer)}>
+              {/* <div className={clsx(styles.updateContainer)}>
                 <div className={clsx(styles.items)}>
                   <label>Examination Department</label>
                   <Form.Select
@@ -175,7 +175,7 @@ export default function ListSchedule() {
                   {errors.faculities?.type === "required" &&
                     "faculities is required"}
                 </div>
-              </div>
+              </div> */}
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

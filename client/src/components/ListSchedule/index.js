@@ -35,9 +35,7 @@ export default function ListSchedule() {
     });
     return cookie[name];
   }
-  console.log("select", select);
   useEffect(() => {
-    console.log("fetch");
     var refreshToken = getCookie("refreshToken");
     if (refreshToken) {
       dispatch(listRequest({ person_id }));
@@ -62,10 +60,6 @@ export default function ListSchedule() {
     setShow(false);
     dispatch(deleteRequest({ id, person_id }));
   };
-  // const handleUpdate = async () => {
-  //   setShow(false);
-  //   console.log("123");
-  // };
 
   const OnSubmit = (data) => {
     data.id = id;
@@ -141,41 +135,7 @@ export default function ListSchedule() {
                   {errors.dateofbirth?.type === "required" &&
                     "dateofbirth is required"}
                 </div>
-                {/* <div className={clsx(styles.items)}>
-                  <label className={clsx(styles.label)}>Appointment</label>
-                  <Form.Control
-                    className={clsx(styles.sub)}
-                    type="date"
-                    placeholder="Date of Birth"
-                    min={moment(tomorrow).format("YYYY-MM-DD")}
-                    name="dateofappointment"
-                    {...register("dateofappointment", {
-                      required: true,
-                      maxLength: 20,
-                    })}
-                  />
-                  {errors.dateofappointment?.type === "required" &&
-                    "dateofappointment is required"}
-                </div> */}
               </div>
-              {/* <div className={clsx(styles.updateContainer)}>
-                <div className={clsx(styles.items)}>
-                  <label>Examination Department</label>
-                  <Form.Select
-                    aria-label="Default select example"
-                    name="faculities"
-                    {...register("faculities", { required: true })}
-                  >
-                    <option value="Tiêu Hóa">Tiêu Hóa</option>
-                    <option value="Hô Hấp">Hô Hấp</option>
-                    <option value="Thần Kinh">Thần Kinh</option>
-                    <option value="Xương Khớp">Xương Khớp</option>
-                    <option value="Tim Mạch">Tim Mạch</option>
-                  </Form.Select>
-                  {errors.faculities?.type === "required" &&
-                    "faculities is required"}
-                </div>
-              </div> */}
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

@@ -10,29 +10,22 @@ function Slide() {
   ];
 
   useEffect(() => {
-    setTimeout(() => {
+    const timOutId = setTimeout(() => {
       if (numberNext < data.length - 1) {
         setnumberNext((prev) => prev + 1);
       } else {
         setnumberNext((prev) => (prev = 0));
       }
     }, 2000);
+    return () => {
+      clearTimeout(timOutId);
+    };
   }, [numberNext, data.length]);
   return (
     <div className={clsx(styles.root)}>
       <div className={clsx(styles.container)}>
         <img alt="logo" className={styles.img} src={data[numberNext]} />
-        {/* <img alt='logo' style={{width: '1536px'}} className={styles.img} src='https://vinmec-prod.s3.amazonaws.com/images/vicaread/20210602_115921_943199_ICon.jpeg'/>
-                <img alt='logo' className={styles.img} src='https://vinmec-prod.s3.amazonaws.com/images/vicaread/20210602_115652_716747_Bweb_Tim.ori.jpg'/> */}
       </div>
-      {/* <div className={clsx(styles.arrowLeft)}   >
-            <i className="fa-solid fa-circle-arrow-left "></i>
-            
-
-            </div> */}
-      {/* <div className={clsx(styles.arrowRight)} >
-            <i className="fa-solid fa-circle-arrow-right "></i>
-            </div> */}
     </div>
   );
 }

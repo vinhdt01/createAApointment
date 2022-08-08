@@ -5,6 +5,7 @@ var refreshTokens = [];
 var userInfo = "";
 exports.refreshToken = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
+
   if (!refreshToken) res.sendStatus(401);
 
   jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY, (err, data) => {
@@ -29,7 +30,7 @@ exports.refreshToken = async (req, res) => {
       secure: true,
       expires: new Date(Date.now() + 60000 * 60 * 10),
     });
-    res.json({ accessToken, a: "1" });
+    res.json({ accessToken, refreshToken: newReFreshToken });
   });
 };
 exports.Logout = async (req, res) => {
@@ -65,8 +66,8 @@ exports.Login = async (req, res) => {
       );
       refreshTokens.push(refreshToken);
       res.cookie("refreshToken", refreshToken, {
-        httpOnly: false,
         secure: true,
+        sameSite: "none",
         expires: new Date(Date.now() + 60000 * 60 * 10),
       });
 

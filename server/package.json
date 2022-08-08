@@ -2,6 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -15,11 +18,10 @@
     "dateformat": "^5.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-session": "^1.17.3",
     "http-proxy-middleware": "^2.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.2",
-    "msnodesqlv8": "^2.4.7",
-    "mssql": "^8.1.0",
     "nodemon": "^2.0.15",
     "uuid": "^8.3.2"
   }

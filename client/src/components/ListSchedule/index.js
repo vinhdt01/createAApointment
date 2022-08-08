@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { Table, Modal, Button, Form } from "react-bootstrap";
 import moment from "moment";
+import jwt_decode from "jwt-decode";
+
 import { listRequest } from "../../redux/Slices/listScheduleSlice.js";
 import { deleteRequest } from "../../redux/Slices/deleteSlice.js";
 import { list, updateStatus } from "../../redux/Select/index.js";
@@ -148,7 +150,7 @@ export default function ListSchedule() {
           </form>
         </Modal>
       </div>
-      <h1>List Schedule</h1>
+      <h1>List of Schedules</h1>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
+
 import moment from "moment";
 import clsx from "clsx";
 import { scheduleRequest } from "../../redux/Slices/scheduleSlice";
@@ -14,9 +14,7 @@ function Schedule() {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const [display, setDisplay] = useState(false);
-  const values = (state) => state.schedule.status;
-  const a = useSelector(values);
+
   const navigate = useNavigate();
   const today = new Date();
   let tomorrow = new Date();
@@ -41,8 +39,9 @@ function Schedule() {
       <div className={clsx(styles.container)}>
         <div className={clsx(styles.container1)}>
           <div className={clsx(styles.item1)}>
-            <label>Họ và tên</label>
+            <label for="name">Họ và tên</label>
             <input
+              id="name"
               type="text"
               name="name"
               {...register("name", { required: true, maxLength: 20 })}
@@ -50,8 +49,9 @@ function Schedule() {
             {errors.name?.type === "required" && "Name is required"}
           </div>
           <div className={clsx(styles.item2)}>
-            <label>Số điện thoại</label>
+            <label for="phone">Số điện thoại</label>
             <input
+              id="phone"
               type="text"
               name="phone"
               {...register("phone", {
@@ -67,8 +67,9 @@ function Schedule() {
         </div>
         <div className={clsx(styles.container2)}>
           <div className={clsx(styles.item1)}>
-            <label>Ngày sinh *</label>
+            <label for="dateofbirth">Ngày sinh *</label>
             <input
+              id="dateofbirth"
               type="date"
               name="dateofbirth"
               {...register("dateofbirth", { required: true })}
@@ -77,8 +78,9 @@ function Schedule() {
               "dateofbirth is required"}
           </div>
           <div className={clsx(styles.item2)}>
-            <label>Ngày đặt</label>
+            <label for="dateofappointment">Ngày đặt</label>
             <input
+              id="dateofappointment"
               type="date"
               name="dateofappointment"
               min={moment(tomorrow).format("YYYY-MM-DD")}
@@ -90,9 +92,10 @@ function Schedule() {
         </div>
         <div className={clsx(styles.container3)}>
           <div className={clsx(styles.item1, styles.need)}>
-            <label>Nhu cầu khám bệnh</label>
+            <label for="faculities">Nhu cầu khám bệnh</label>
 
             <select
+              id="faculities"
               style={{ height: "40px" }}
               name="faculities"
               {...register("faculities", { required: true })}

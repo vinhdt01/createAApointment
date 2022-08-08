@@ -1,6 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-const URL = "http://localhost:8080";
+const URL = "http://locahost:5000";
 var A = localStorage.getItem("token");
 
 const axiosJwt = axios.create({
@@ -18,8 +18,11 @@ axiosJwt.interceptors.request.use(
 
       return config;
     } else {
-      const response = await axios.post(`${URL}/refreshToken`);
+      const response = await axios.post(`${URL}/refreshToken`, {
+        refreshToken: localStorage.getItem("refreshToken"),
+      });
       localStorage.setItem("token", response.data.accessToken);
+
       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
 
       return config;

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
+
 import styles from "./Index.module.scss";
 import clsx from "clsx";
 import NavMobile from "../NavMobile/index";
@@ -14,6 +16,7 @@ function Menu() {
   const [hide, setHide] = useState(false);
 
   var data = localStorage.getItem("token");
+
   function getCookie(name) {
     let cookie = {};
     document.cookie.split(";").forEach(function (el) {
@@ -27,7 +30,13 @@ function Menu() {
     if (!data) {
       navigate("/login");
     } else {
-      navigate(`/listschedule`);
+      var decodedJwt = jwt_decode(data);
+      let date = new Date();
+      if (decodedJwt.exp < date.getTime() / 1000) {
+        navigate("/login");
+      } else {
+        navigate(`/listschedule`);
+      }
     }
   };
   const removeHandle = () => {

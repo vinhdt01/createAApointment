@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.325864e4.css",
+    "main.js": "/static/js/main.748845fd.js",
+    "static/media/medical.jpg": "/static/media/medical.67d4f1634e05263065cf.jpg",
+    "static/media/notfound.jpg": "/static/media/notfound.671c9aa2b53586296d51.jpg",
+    "static/media/bocongthuong.png": "/static/media/bocongthuong.af9e9bbb15a42076a5a5.png",
+    "static/media/logo.svg": "/static/media/logo.c76a3fed2a2900d9076c9b0c10a6795c.svg",
+    "static/media/chao.jpg": "/static/media/chao.7566e4cd0c5b9454b6aa.jpg",
+    "index.html": "/index.html",
+    "main.325864e4.css.map": "/static/css/main.325864e4.css.map",
+    "main.748845fd.js.map": "/static/js/main.748845fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.325864e4.css",
+    "static/js/main.748845fd.js"
+  ]
+}

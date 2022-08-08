@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import jwt_decode from "jwt-decode";
+
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +27,7 @@ function Chat() {
   }
 
   var refreshToken = getCookie("refreshToken");
+
   useEffect(() => {
     if (!refreshToken) {
       navigate("/login");

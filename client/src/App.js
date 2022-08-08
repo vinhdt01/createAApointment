@@ -12,7 +12,7 @@ import Chat from "../src/components/Chat/index";
 import NotFound from "../src/components/NotFound/index";
 
 import { Routes, Route } from "react-router-dom";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 function App() {
   axios.defaults.withCredentials = true;
   return (

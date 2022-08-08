@@ -12,7 +12,7 @@ import Slide from "../Slide/index";
 import Schedule from "../Schedule/index";
 import Content from "../Content/index";
 import Footer from "../Footer/index";
-
+import Specialization from "../Specializations/index";
 function Container() {
   const myRef = useRef(null);
   const moveToSchedule = () => {
@@ -37,6 +37,7 @@ function Container() {
         className={clsx(styles.scheduleIcon)}
         onClick={moveToSchedule}
       />
+      <Specialization />
       <Footer />
     </div>
   );

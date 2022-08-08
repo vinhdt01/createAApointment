@@ -10,6 +10,7 @@ export function* logout(action) {
   if (data.data === "logout success") {
     localStorage.removeItem("token", "person_id");
     localStorage.removeItem("person_id");
+    localStorage.removeItem("refreshToken");
   } else {
   }
 }
